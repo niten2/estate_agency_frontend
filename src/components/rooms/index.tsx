@@ -1,4 +1,5 @@
 import * as React from "react"
+import ListRooms from "./list"
 
 class Dashboard extends React.Component {
 
@@ -15,6 +16,8 @@ class Dashboard extends React.Component {
                   <i className="fa fa-align-justify" />
                   rooms
                 </div>
+
+                <ListRooms />
 
               </div>
             </div>
