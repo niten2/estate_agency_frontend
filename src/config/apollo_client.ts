@@ -31,7 +31,7 @@ const errorLink = onError(({ networkError, graphQLErrors, response }) => {
 
 const middlewareLink = setContext(() => ({
   headers: {
-    authorization: AuthProvider.fetchToken(),
+    authorization: AuthProvider.hasLogin() ? AuthProvider.fetchToken() : null,
   }
 }))
 

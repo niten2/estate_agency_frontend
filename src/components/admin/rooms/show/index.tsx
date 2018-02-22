@@ -131,6 +131,15 @@ class ShowRoom extends React.Component<any, any> {
 
                       {" "}
 
+                      <button
+                        className="btn btn-primary"
+                        onClick={this.handleDelete}
+                      >
+                        Delete
+                      </button>
+
+                      {" "}
+
                       <Link to="/admin/rooms">
                         <button
                           className="btn btn-default"

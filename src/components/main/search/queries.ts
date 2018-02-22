@@ -11,15 +11,15 @@ const searchRoomsQuery = gql`
   }
 `
 
-const roomsQuery = gql`
-  query {
-    rooms {
-      id
+// const roomsQuery = gql`
+//   query {
+//     rooms {
+//       id
 
-      name
-    }
-  }
-`
+//       name
+//     }
+//   }
+// `
 
 export const withData = compose(
   graphql<any, any, any>(
@@ -27,9 +27,9 @@ export const withData = compose(
       name: "searchRoomsQuery",
     }
   ),
-  graphql<any, any, any>(
-    roomsQuery, {
-      name: "roomsQuery",
-    }
-  ),
+  // graphql<any, any, any>(
+  //   roomsQuery, {
+  //     name: "roomsQuery",
+  //   }
+  // ),
 )

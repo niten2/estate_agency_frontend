@@ -13,7 +13,7 @@ class Info extends React.Component {
 
                 <div className="card-header">
                   <i className="fa fa-align-justify" />
-                  Info
+                  Info about landing
                 </div>
 
               </div>
