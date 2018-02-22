@@ -1,7 +1,6 @@
 import * as React from "react"
-import ListRooms from "./list"
 
-class Dashboard extends React.Component {
+class Rooms extends React.Component {
 
   render() {
     return (
@@ -14,10 +13,8 @@ class Dashboard extends React.Component {
 
                 <div className="card-header">
                   <i className="fa fa-align-justify" />
-                  rooms
+                  Rooms
                 </div>
-
-                <ListRooms />
 
               </div>
             </div>
@@ -29,4 +26,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard
+export default Rooms

@@ -2,13 +2,14 @@ import * as React from 'react'
 import Link from "src/config/link"
 
 interface P {
-  room: [any]
+  room: any
 }
 
 class ViewClient extends React.Component<P, any> {
 
   state = {
     attributes: [
+      "id",
       "name",
     ]
   }

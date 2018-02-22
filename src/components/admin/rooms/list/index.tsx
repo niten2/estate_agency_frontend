@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import Spinner from 'src/components/shared/spinner'
 import Page500 from 'src/components/shared/page500'
-import ViewClient from 'src/components/clients/list/view'
-import { withData } from 'src/components/clients/list/queries'
+import ViewClient from './view'
+import { withData } from './queries'
 
 interface P {
   roomsQuery: any
@@ -31,7 +31,7 @@ class ListRoom extends React.Component<P, {}> {
               <div className="card">
 
                 <div className="card-header">
-                  <i className="fa fa-align-justify" /> Rooms
+                  <i className="fa fa-align-justify" /> List Rooms
                 </div>
 
                 <div className="card-block">

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-class Dashboard extends React.Component {
+class Search extends React.Component {
 
   render() {
     return (
@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
 
                 <div className="card-header">
                   <i className="fa fa-align-justify" />
-                  Main
+                  Search
                 </div>
 
               </div>
@@ -26,4 +26,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard
+export default Search
