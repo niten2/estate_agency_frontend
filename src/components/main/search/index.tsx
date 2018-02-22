@@ -13,6 +13,10 @@ class Search extends React.Component<any, any> {
     rooms: [],
   }
 
+  componentWillReceiveProps(props: any) {
+    this.setState({ rooms: props.roomsQuery.rooms })
+  }
+
   handleSetState = (e) => {
     const { value } = e.target
 

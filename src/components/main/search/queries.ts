@@ -1,5 +1,5 @@
 import gql from "graphql-tag"
-import { graphql } from "react-apollo"
+import { compose, graphql } from "react-apollo"
 
 const searchRoomsQuery = gql`
   mutation searchRoom($input: SearchInput!) {
@@ -11,8 +11,25 @@ const searchRoomsQuery = gql`
   }
 `
 
-export const withData = graphql<any, any, any>(
-  searchRoomsQuery, {
-    name: "searchRoomsQuery",
+const roomsQuery = gql`
+  query {
+    rooms {
+      id
+
+      name
+    }
   }
+`
+
+export const withData = compose(
+  graphql<any, any, any>(
+    searchRoomsQuery, {
+      name: "searchRoomsQuery",
+    }
+  ),
+  graphql<any, any, any>(
+    roomsQuery, {
+      name: "roomsQuery",
+    }
+  ),
 )

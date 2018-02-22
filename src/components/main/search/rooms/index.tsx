@@ -12,44 +12,42 @@ class MainListRoom extends React.Component<P, {}> {
     let { rooms } = this.props
 
     return (
-      <div className="container-fluid">
-        <div className="animated fadeIn">
+      <div>
 
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="card">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="card">
 
-                <div className="card-header">
-                  <i className="fa fa-align-justify" /> List Rooms
-                </div>
-
-                <div className="card-block">
-                  <table className="table text-center">
-                    <thead>
-                      <tr>
-                        <th className="text-center">Id</th>
-                        <th className="text-center">Name</th>
-                        <th className="text-center">Edit</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-
-                      { rooms.map((room, index) =>
-                        <View
-                          key={index}
-                          room={room}
-                        />
-                      )}
-
-                    </tbody>
-                  </table>
-                </div>
-
+              <div className="card-header">
+                <i className="fa fa-align-justify" />
+                List Rooms
               </div>
+
+              <div className="card-block">
+                <table className="table text-center">
+                  <thead>
+                    <tr>
+                      <th className="text-center">Name</th>
+                      <th className="text-center">Show</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    { rooms.map((room, index) =>
+                      <View
+                        key={index}
+                        room={room}
+                      />
+                    )}
+
+                  </tbody>
+                </table>
+              </div>
+
             </div>
           </div>
-
         </div>
+
       </div>
     )
   }
