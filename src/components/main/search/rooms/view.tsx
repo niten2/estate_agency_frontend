@@ -9,7 +9,6 @@ class MainViewRoom extends React.Component<P, any> {
 
   state = {
     attributes: [
-      "id",
       "name",
     ]
   }
