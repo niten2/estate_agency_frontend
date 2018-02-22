@@ -7,6 +7,8 @@ import Spinner from 'src/components/shared/spinner'
 import Page500 from 'src/components/shared/page500'
 import Link from "src/config/link"
 import { withData } from './queries'
+// import Upload from "src/components/shared/upload"
+import Slider from "src/components/shared/slider"
 
 class ShowRoom extends React.Component<any, any> {
 
@@ -14,6 +16,7 @@ class ShowRoom extends React.Component<any, any> {
     room: {
       id: "",
       name: "",
+      images: [],
     },
   }
 
@@ -120,6 +123,12 @@ class ShowRoom extends React.Component<any, any> {
                         </div>
                       </div>
                     </div>
+
+
+                    <Slider
+                      urls={room.images}
+                    />
+
 
                     <div className="form-actions">
                       <button

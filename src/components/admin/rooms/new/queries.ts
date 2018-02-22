@@ -6,7 +6,16 @@ const createRoomQuery = gql`
     createRoom(input: $input) {
       id
 
-      name
+      images
+
+      region
+      address
+      house_number
+      number_of_rooms
+      area
+      floor
+      deadline
+      price
     }
   }
 `

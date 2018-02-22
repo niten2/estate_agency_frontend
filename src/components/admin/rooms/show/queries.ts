@@ -7,6 +7,7 @@ const roomQuery = gql`
       id
 
       name
+      images
     }
   }
 `
