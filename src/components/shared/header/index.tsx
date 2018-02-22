@@ -1,11 +1,5 @@
 import * as React from "react"
-// import gql from "graphql-tag"
-// import { withRouter } from "react-router"
-// import { withApollo, graphql } from "react-apollo"
-
 import AuthProvider from "src/config/auth_provider"
-// import Spinner from 'src/components/shared/spinner'
-// import Page500 from 'src/components/shared/page500'
 
 class Header extends React.Component<any, any> {
 
@@ -44,16 +38,6 @@ class Header extends React.Component<any, any> {
   }
 
   render() {
-    // let { me, loading, error } = this.props.meQuery
-
-    // if (loading ) {
-    //   return <Spinner />
-    // }
-
-    // if (error) {
-    //   return <Page500 />
-    // }
-
     return (
       <header className="app-header navbar">
         <button
