@@ -19,7 +19,7 @@ const errorLink = onError(({ networkError, graphQLErrors, response }) => {
 
       if (message === "user not found" || message === "token not valid") {
         AuthProvider.removeToken()
-        history.push("/")
+        history.push("/admin")
       }
     })
   }

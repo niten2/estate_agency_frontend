@@ -1,26 +1,5 @@
 import * as React from "react"
-import gql from "graphql-tag"
-import { withRouter } from "react-router"
-import { withApollo, graphql } from "react-apollo"
-
 import AuthProvider from "src/config/auth_provider"
-import Spinner from 'src/components/shared/spinner'
-import Page500 from 'src/components/shared/page500'
-
-const meQuery = gql`
-  query {
-    me {
-      login
-      role
-    }
-  }
-`
-
-const withData = graphql<any, any, any>(
-  meQuery, {
-    name: "meQuery"
-  }
-)
 
 class Header extends React.Component<any, any> {
 
@@ -53,22 +32,12 @@ class Header extends React.Component<any, any> {
     AuthProvider.removeToken()
 
     this.props.client.resetStore()
-    this.props.history.push("/login")
+    this.props.history.push("/")
 
     console.log("logout")
   }
 
   render() {
-    let { me, loading, error } = this.props.meQuery
-
-    if (loading ) {
-      return <Spinner />
-    }
-
-    if (error) {
-      return <Page500 />
-    }
-
     return (
       <header className="app-header navbar">
         <button
@@ -79,7 +48,7 @@ class Header extends React.Component<any, any> {
           &#9776;
         </button>
 
-        <a className="navbar-brand">Credit Site</a>
+        <a className="navbar-brand">Estate Agency</a>
 
         <ul className="nav navbar-nav d-md-down-none">
           <li className="nav-item">
@@ -95,20 +64,6 @@ class Header extends React.Component<any, any> {
         </ul>
 
         <ul className="nav navbar-nav ml-auto">
-          <li className="d-md-down-none nav-item">
-            <button className="btn btn-secondary">
-              {me.login}
-            </button>
-            &nbsp;
-          </li>
-
-          <li className="d-md-down-none nav-item">
-            <button className="btn btn-secondary">
-              {me.role}
-            </button>
-            &nbsp;
-          </li>
-
           <li onClick={this.handleLogout} className="nav-item pointer">
             <button className="btn btn-info">
               Logout
@@ -121,8 +76,4 @@ class Header extends React.Component<any, any> {
   }
 }
 
-export default withRouter(
-  withApollo(
-    withData(Header)
-  )
-)
+export default Header

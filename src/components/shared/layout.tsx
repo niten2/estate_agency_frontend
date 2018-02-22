@@ -4,8 +4,7 @@ import { Redirect, Route } from 'react-router-dom'
 
 import UIStore from 'src/store'
 import AuthProvider from "src/config/auth_provider"
-// import Header from 'src/components/shared/header'
-// import Sidebar from 'src/components/shared/sidebar'
+import Header from 'src/components/shared/header'
 
 class LayoutComponent extends React.Component<any, any> {
 
@@ -17,6 +16,7 @@ class LayoutComponent extends React.Component<any, any> {
     return (
       <div className="app">
         <NotificationSystem ref={this.notification} allowHTML={true} />
+        <Header {...this.props}/>
 
         <div className="app-body">
 
@@ -48,19 +48,3 @@ export const PrivateLayout = (options: any) => {
     return <Redirect to="/admin" />
   }
 }
-
-// export const PrivateLayoutAdmin = (options: any) => {
-//   if (AuthProvider.hasLogin() && AuthProvider.isAdmin()) {
-//     return Layout(options)
-//   } else {
-//     return <Redirect to="/dashboard" />
-//   }
-// }
-
-// export const PrivateLayoutManager = (options: any) => {
-//   if (AuthProvider.hasLogin() && !AuthProvider.isAdmin()) {
-//     return Layout(options)
-//   } else {
-//     return <Redirect to="/dashboard" />
-//   }
-// }

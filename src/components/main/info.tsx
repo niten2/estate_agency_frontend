@@ -1,6 +1,6 @@
 import * as React from "react"
 
-class Admin extends React.Component {
+class Info extends React.Component {
 
   render() {
     return (
@@ -13,7 +13,7 @@ class Admin extends React.Component {
 
                 <div className="card-header">
                   <i className="fa fa-align-justify" />
-                  admin
+                  Info
                 </div>
 
               </div>
@@ -26,4 +26,4 @@ class Admin extends React.Component {
   }
 }
 
-export default Admin
+export default Info
