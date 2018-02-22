@@ -1,16 +1,27 @@
 import * as React from "react"
 import { Input } from "reactstrap"
+import { concat } from "ramda"
 
 import Link from "src/config/link"
 import Notification from "src/config/notification"
 import { withData } from "./queries"
+import Upload from "src/components/shared/upload"
+import Slider from "src/components/shared/slider"
 
 class NewRoom extends React.Component<any, any> {
 
   state = {
     room: {
-      name: "",
-    },
+      images: [],
+      region: "",
+      address: "",
+      house_number: "",
+      number_of_rooms: "",
+      area: "",
+      floor: "",
+      deadline: "",
+      price: "",
+    }
   }
 
   handleSetState = (e) => {
@@ -21,6 +32,14 @@ class NewRoom extends React.Component<any, any> {
     this.setState({ room })
   }
 
+  handleSetImages = (urls) => {
+    let { room } = this.state
+
+    room.images = concat(room.images, urls)
+
+    this.setState({ room })
+  }
+
   handleCreate = async (e?: any) => {
     if (e) { e.preventDefault() }
     const { room } = this.state
@@ -28,18 +47,28 @@ class NewRoom extends React.Component<any, any> {
     const options = {
       variables: {
         input: {
-          name: room.name,
+          images: room.images,
+          region: room.region,
+          address: room.address,
+          house_number: room.house_number,
+          number_of_rooms: room.number_of_rooms,
+          area: room.area,
+          floor: room.floor,
+          deadline: room.deadline,
+          price: room.price,
         }
       },
     }
 
     try {
       await this.props.createRoomQuery(options)
+
       Notification.success("create room")
 
       this.setState({
         client: {
           name: "",
+          images: [],
         }
       })
     } catch (err) {
@@ -75,17 +104,132 @@ class NewRoom extends React.Component<any, any> {
                     <div className="form-group row">
                       <div className="col-md-12">
                         <div className="input-group">
-                          <span className="input-group-addon">Name</span>
+                          <span className="input-group-addon">Район</span>
                           <Input
-                            name="name"
-                            placeholder="name"
+                            name="region"
+                            placeholder="region"
                             onChange={this.handleSetState}
                             onKeyPress={this.handleOnKeyPress}
-                            value={room.name}
+                            value={room.region}
                           />
                         </div>
                       </div>
                     </div>
+
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Адресс</span>
+                          <Input
+                            name="address"
+                            placeholder="address"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.address}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Номер дома</span>
+                          <Input
+                            name="house_number"
+                            placeholder="house_number"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.house_number}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Количество Комнат</span>
+                          <Input
+                            name="number_of_rooms"
+                            placeholder="number_of_rooms"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.number_of_rooms}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Площадь</span>
+                          <Input
+                            name="area"
+                            placeholder="area"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.area}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Этаж</span>
+                          <Input
+                            name="floor"
+                            placeholder="floor"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.floor}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Срок сдачи</span>
+                          <Input
+                            name="deadline"
+                            placeholder="deadline"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.deadline}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <div className="col-md-12">
+                        <div className="input-group">
+                          <span className="input-group-addon">Цена</span>
+                          <Input
+                            name="price"
+                            placeholder="price"
+                            onChange={this.handleSetState}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={room.price}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <Upload
+                      handleSetImages={this.handleSetImages}
+                    />
+
+                    <Slider
+                      urls={room.images}
+                    />
 
                     <div className="form-actions">
                       <button
