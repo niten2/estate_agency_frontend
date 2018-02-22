@@ -1,4 +1,7 @@
 import * as React from "react"
+import { withRouter } from "react-router"
+import { withApollo } from "react-apollo"
+
 import AuthProvider from "src/config/auth_provider"
 
 class Header extends React.Component<any, any> {
@@ -76,4 +79,4 @@ class Header extends React.Component<any, any> {
   }
 }
 
-export default Header
+export default withRouter(withApollo(Header))
