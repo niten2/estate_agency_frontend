@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Input } from 'reactstrap'
 import { set, lensProp } from 'ramda'
-// import Select from 'react-select'
 
 import Notification from 'src/config/notification'
 import Spinner from 'src/components/shared/spinner'
